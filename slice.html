@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    Array.prototype.sum = function sum(num1, num2) {
+        var ary = [];
+        var item1 = Math.abs(num1) > this.length ? 0 : num1;
+        item1 = (isNaN(item1) ? 0 : (item1 < 0 ? Math.ceil(item1 + this.length) : Math.floor(item1)));
+        var item2 = (num2 === undefined && ((num1 <= this.length) || isNaN(item1)) ? this.length : (num2 < 0 ? Math.ceil(num2 + this.length) : Math.floor(num2)));
+        for (var i = item1; (i < item2) && (i < this.length); i++) {
+            ary[ary.length] = this[i]
+        }
+        return ary;
+    };
+    var ary = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    console.log(ary.sum(2.7, 7.7));
+    console.log(ary.slice(2.7, 7.7));
+</script>
+</body>
+</html>
